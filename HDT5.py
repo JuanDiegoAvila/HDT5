@@ -7,17 +7,23 @@ def proceso (env,CPU, RAM):
     RAM.get(asignacion_memoria)
     #Tiempo de Trabajo de la CPU
     tiempoInicial = env.now
+    # NEW
 
-    if RAM != 0:
-        print("READY")
-    else:
-        print("WAITING")
+
+    # WAITING
+    while RAM == 0:
+        with RAM.request() as turno:
+            yield turno
+
+    # READY
     #Enviar el proceso al CPU
+    instrucciones = random.randit(1,10)
     #Si hay otros 3 procesos, deberá hacer cola
     with CPU.request() as turno:
         yield turno #Entra el proceso a la CPU
         yield env.timeout(tiempoTrabajo) #
 
+    # RUNNING
     tiempoTrabajo = env.now - tiempoInicial
 
     global totalProceso

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3b6294bf-2b65-4a09-a2a0-a6ddbf8ae43a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/HDT5.py" beforeDir="false" afterPath="$PROJECT_DIR$/HDT5.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +34,7 @@
       <option name="presentableId" value="Default" />
       <updated>1615331658202</updated>
       <workItem from="1615331699044" duration="128000" />
-      <workItem from="1615332177681" duration="1549000" />
+      <workItem from="1615332177681" duration="2146000" />
     </task>
     <servers />
   </component>
