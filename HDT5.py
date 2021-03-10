@@ -16,16 +16,19 @@ def proceso (env,CPU, RAM, procesos, speed):
             yield turno
 
     # READY
-
-
-    # RUNNING
-    tiempoTrabajo = env.now - tiempoInicial
-    # Enviar el proceso al CPU
+    # Instrucciones a realizar
     instrucciones = random.randint(1, 10)
-    # Si hay otros 3 procesos, deberá hacer cola
-    with CPU.request() as turno:
-        yield turno  # Entra el proceso a la CPU
-        yield env.timeout(tiempoTrabajo)  #
+    while instrucciones != 0:
+        
+        
+        # RUNNING
+        tiempoTrabajo = env.now - tiempoInicial
+    
+        # Si hay otros 3 procesos, deberá hacer cola
+        with CPU.request() as turno:
+            yield turno  # Entra el proceso a la CPU
+            yield env.timeout(tiempoTrabajo)  #El proceso se trabaja en la CPU por un tiempo
+
 
     global totalProceso
     totalProceso += totalProceso + tiempoTrabajo
