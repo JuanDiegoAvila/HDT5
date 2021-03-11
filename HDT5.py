@@ -14,9 +14,7 @@ def proceso(env, CPU, RAM, tiempoEntrada, speed, name):
         if RAM.level >= asignacion_memoria:
             yield RAM.get(asignacion_memoria)
             print('\nEl nuevo proceso %s usa %s de la memoria RAM' % (name, asignacion_memoria))
-            break;
-        # else:
-        # print("Esperando")
+            break
 
     # Instrucciones a realizar
     instrucciones = random.randint(1, 10)
@@ -58,15 +56,15 @@ def proceso(env, CPU, RAM, tiempoEntrada, speed, name):
 totalProceso = 0
 procesos = 0
 
-random.seed(69)
+random.seed(10)
 env = simpy.Environment()  # Ambiente de simulación
 RAM = simpy.Container(env, init=100, capacity=100)
-CPU = simpy.Resource(env, capacity=3)
+CPU = simpy.Resource(env, capacity=1)
 
-for i in range(5):
+for i in range(25):
     env.process(proceso(env, CPU, RAM, random.expovariate(1.0 / 10), 1, i + 1))
 
 # inicia la simulacion
 env.run()
-print("\n\tEl tiempo total es de : " + str(totalProceso))
+print("\n\tEl tiempo total es de : " + str(totalProceso/25))
 print("\tSe realizaron " + str(procesos) + " procesos.")
